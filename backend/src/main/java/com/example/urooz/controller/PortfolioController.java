@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/api/portfolio")
 // @CrossOrigin(origins = "*")
 @CrossOrigin(origins = {
-    "http://localhost:5173",
+    "*",
     "https://ai-portfolio-generator-12.onrender.com"
 })
 

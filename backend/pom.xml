@@ -17,7 +17,7 @@
 	<description>An AI portfolio builder from Resume</description>
 
 	<properties>
-		<java.version>25</java.version>
+		<java.version>17</java.version>
 		<langchain4j.version>0.36.0</langchain4j.version> </properties>
 
 	<dependencies>

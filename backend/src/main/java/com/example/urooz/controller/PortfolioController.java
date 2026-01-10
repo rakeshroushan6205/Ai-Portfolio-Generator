@@ -12,7 +12,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/portfolio")
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://ai-portfolio-generator-12.onrender.com"
+})
+
 public class PortfolioController {
 
     private final DocumentParserService parserService;

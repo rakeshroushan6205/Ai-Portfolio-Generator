@@ -2,8 +2,9 @@ import axios from "axios";
 
 // Get API base URL from environment variable
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:8080";
-
+  import.meta.env.VITE_API_URL ||
+  "https://ai-portfolio-generator-backend.onrender.com";
+// "http://localhost:8080"
 // Create axios instance
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

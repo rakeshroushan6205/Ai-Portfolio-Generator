@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 // @CrossOrigin(origins = "*")
 @CrossOrigin(origins = {
     "*",
-    "https://ai-portfolio-generator-12.onrender.com"
+    "https://ai-portfolio-generator-backend.onrender.com"
 })
 
 public class PortfolioController {

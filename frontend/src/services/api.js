@@ -18,14 +18,41 @@ apiClient.interceptors.request.use(
 );
 
 // Response interceptor
+// apiClient.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response) {
+//       const message =
+//         error.response.data?.message ||
+//         error.response.data ||
+//         "An error occurred";
+//       return Promise.reject(new Error(message));
+//     } else if (error.request) {
+//       return Promise.reject(
+//         new Error("Network error. Please check your connection.")
+//       );
+//     } else {
+//       return Promise.reject(
+//         new Error(error.message || "An unexpected error occurred")
+//       );
+//     }
+//   }
+// );
 apiClient.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (error.response) {
+      // If backend sent blob error
+      if (error.response.data instanceof Blob) {
+        const text = await error.response.data.text();
+        return Promise.reject(new Error(text));
+      }
+
       const message =
         error.response.data?.message ||
         error.response.data ||
         "An error occurred";
+
       return Promise.reject(new Error(message));
     } else if (error.request) {
       return Promise.reject(
@@ -38,6 +65,7 @@ apiClient.interceptors.response.use(
     }
   }
 );
+
 
 /* ---------------- API METHODS ---------------- */
 
